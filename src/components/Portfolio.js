@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../firebase'
+import { Link } from 'react-router-dom'
 
 export default function Portfolio() {
     const [loading, setLoading] = useState(true)
@@ -39,7 +40,7 @@ export default function Portfolio() {
                         <>
                             {projects.length > 0 ? (projects.map((project) => 
                                 <div className="col-lg-4 work_item" key={project.key}>
-                                    <a href={project.url}>
+                                    <Link to={`project/${project.key}`}>
                                         <div className="work_box">
                                             <div className="work_img">
                                                 <img src="images/works/1.jpg" className="img-fluid mx-auto d-block rounded" alt="work-img"/>
@@ -49,7 +50,7 @@ export default function Portfolio() {
                                                 <p className="mb-0">{project.description}</p>
                                             </div>
                                         </div>
-                                    </a>
+                                    </Link>
                                 </div>
                             )
                             ) : <h2>No Projects</h2>}
