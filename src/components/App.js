@@ -1,13 +1,12 @@
-import React from 'react';
-import { AuthProvider } from '../contexts/AuthContext';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from '../pages/Home';
-import Login from './Login';
-import PrivateRoute from './PrivateRoute';
-import ForgotPassword from './ForgotPassword';
-import UpdateProfile from './UpdateProfile';
-import Admin from '../pages/admin/Admin';
-import Project from '../pages/Project';
+import React from "react";
+import { AuthProvider } from "../contexts/AuthContext";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "../pages/Home";
+import Login from "./Login";
+import PrivateRoute from "./PrivateRoute";
+import ForgotPassword from "./ForgotPassword";
+import UpdateProfile from "./UpdateProfile";
+import Admin from "../pages/admin/Admin";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
           <AuthProvider>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/project/:projectId" component={Project} />
               <PrivateRoute path="/admin" component={Admin} />
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
               <Route path="/login" component={Login} />
@@ -27,7 +25,7 @@ function App() {
         </Router>
       </div>
     </>
-  )
+  );
 }
 
 export default App;
